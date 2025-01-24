@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+</head>
+<body>
+{% for table in tables %}
+            <h1>{{caption}}</h1>
+            {{ table|safe }}
+{% endfor %}
+
+<p>
+    <b>Выбрать интонационную модель</b>
+</p>
+<form action="/synt_type_sample" method="POST">
+    <select name="new_types" id="new_types">
+        {% for new_type in new_types %}
+        <option value="{{ new_type }}">{{ new_type }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Вывести">
+</form>
+
+<p>
+    <b>Просмотреть синтагмы для одного файла</b>
+</p>
+
+<form action="/filename_sample" method="POST">
+    <select name="new_filenames" id="new_filenames">
+        {% for new_filename in new_filenames %}
+        <option value="{{ new_filename }}">{{ new_filename }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Вывести">
+</form>
+
+<p> </p>
+<form action="/count_synts" method="post">
+  <button name="how many synts" type="submit">Количество синтагм в таблице</button>
+</form>
+
+<p> </p>
+<form action="/avg_duration" method="post">
+  <button name="average synt duration" type="submit">Средняя длительность синтагмы (сек)</button>
+</form>
+</body>
+</html>
