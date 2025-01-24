@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+</head>
+<body>
+{% for table in tables %}
+            <h1>{{caption}}</h1>
+            {{ table|safe }}
+{% endfor %}
+
+<p> </p>
+<b>Количество синтагм с моделью {{selected_type}}:</b> {{count_synt_type}}
+<p> </p>
+<b>Средняя длительность синтагм с моделью {{selected_type}}</b>: {{avg_dur_type}}
